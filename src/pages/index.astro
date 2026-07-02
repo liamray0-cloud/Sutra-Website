@@ -1,5 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: 'How much does this cost?',
+    answer:
+      "It depends on the scope, so we don't publish a flat rate card. After a discovery call, we put together a written proposal — the exact scope, timeline, and cost — before anything is built. No fees and no surprises until you decide to go ahead.",
+  },
+  {
+    question: 'How long does a project take?',
+    answer:
+      "It depends on complexity, but every project starts with a defined scope of work before any building begins — no open-ended timelines. Simple, single-workflow automations take far less time than multi-system builds; we'll give you a realistic timeline as part of the scoping process, not a guess.",
+  },
+  {
+    question: 'Do I need to be technical to work with you?',
+    answer:
+      "No. Training your team is part of every engagement, not an optional extra — we explain things in plain English and make sure your people are comfortable running what we build before we call it done.",
+  },
+  {
+    question: 'What happens if something breaks?',
+    answer:
+      "Every implementation includes a post-launch support window, and automations run on our own infrastructure so we can monitor and fix issues directly rather than relying on you to notice something's gone wrong.",
+  },
+  {
+    question: 'Where are you based?',
+    answer:
+      'Perth, Western Australia. We work with local small and medium businesses — typically 5 to 50 people — and we can meet on-site.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
 ---
 
 <Layout title="Sutura Solutions — Smart Automation for Perth Businesses">
@@ -9,9 +50,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="nav-inner">
       <a href="/" class="nav-logo">Sutura Solutions</a>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#what-we-do">What We Do</a></li>
         <li><a href="#who-we-help">Who We Help</a></li>
-        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="mailto:info@suturasolutions.com" class="nav-cta">Get In Touch</a></li>
       </ul>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
@@ -24,9 +66,12 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="/hero-bg.mp4" type="video/mp4" />
-    </video>
+    <img
+      class="hero-photo"
+      src="/images/hero-electrician.jpg"
+      alt="An electrician wiring a switchboard on a job site"
+      fetchpriority="high"
+    />
     <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-content">
@@ -37,7 +82,42 @@ import Layout from '../layouts/Layout.astro';
         </p>
         <div class="btn-group">
           <a href="mailto:info@suturasolutions.com" class="btn btn-primary">Book a Discovery Call</a>
-          <a href="#what-we-do" class="btn btn-outline">Learn More</a>
+          <a href="#who-we-help" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section class="who-we-help" id="who-we-help">
+    <div class="container">
+      <div class="who-we-help-grid">
+        <div class="section-header who-we-help-intro">
+          <span class="section-label">Who We Help</span>
+          <h2>Built for Perth small businesses.</h2>
+          <p>
+            We work with tradies, service businesses, and growing companies that know there's a better way to run things — they just haven't had the time to figure it out.
+          </p>
+        </div>
+        <div class="pain-points">
+          <div class="pain-point">
+            <p>You're quoting at 9pm because there's no time during the day.</p>
+          </div>
+          <div class="pain-point">
+            <p>Leads come in and don't hear back for days — some never hear back at all.</p>
+          </div>
+          <div class="pain-point">
+            <p>Jobs are done but invoices go out weeks late.</p>
+          </div>
+          <div class="pain-point">
+            <p>You're paying for software you barely use.</p>
+          </div>
+          <div class="pain-point">
+            <p>Your team relies on you for everything because nothing is documented.</p>
+          </div>
+          <div class="pain-point">
+            <p>You know you should be working on the business, not just in it.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -85,35 +165,53 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- WHO WE HELP -->
-  <section class="who-we-help" id="who-we-help">
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Who We Help</span>
-        <h2>Built for Perth small businesses.</h2>
+        <span class="section-label">How It Works</span>
+        <h2>A straightforward process, start to finish.</h2>
         <p>
-          We work with tradies, service businesses, and growing companies that know there's a better way to run things — they just haven't had the time to figure it out.
+          No black boxes. Every step is scoped, tested, and handed off properly before we consider it done.
         </p>
       </div>
-      <div class="pain-points">
-        <div class="pain-point">
-          <p>You're quoting at 9pm because there's no time during the day.</p>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-marker">01</div>
+          <h3>Discovery call</h3>
+          <p>A short conversation about where your time is actually going. No pitch, no pressure.</p>
         </div>
-        <div class="pain-point">
-          <p>Leads come in and don't hear back for days — some never hear back at all.</p>
+        <div class="timeline-step">
+          <div class="timeline-marker">02</div>
+          <h3>Proposal</h3>
+          <p>A written proposal covering scope, timeline, and cost, so you know exactly what you're getting before we build anything.</p>
         </div>
-        <div class="pain-point">
-          <p>Jobs are done but invoices go out weeks late.</p>
+        <div class="timeline-step">
+          <div class="timeline-marker">03</div>
+          <h3>Build &amp; test</h3>
+          <p>We build the automation on our own infrastructure and test it thoroughly before it touches your workflow.</p>
         </div>
-        <div class="pain-point">
-          <p>You're paying for software you barely use.</p>
+        <div class="timeline-step">
+          <div class="timeline-marker">04</div>
+          <h3>Deployment</h3>
+          <p>We deploy it into your live workflow and train your team to run it — plus a defined support window, not a disappearing act.</p>
         </div>
-        <div class="pain-point">
-          <p>Your team relies on you for everything because nothing is documented.</p>
-        </div>
-        <div class="pain-point">
-          <p>You know you should be working on the business, not just in it.</p>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <span class="section-label">About</span>
+        <h2>Why we started this.</h2>
+        <p>
+          We started Sutura Solutions because we kept watching good businesses get buried under admin they didn't have time for — quotes written at night, leads answered days too late, invoices chasing themselves.
+        </p>
+        <p>
+          We're a Perth-based team building practical automation for local businesses, not enterprise software dressed up for small teams. Every system we build runs on our own infrastructure and comes with training, because a tool nobody knows how to use isn't a solution — it's just another piece of software gathering dust.
+        </p>
       </div>
     </div>
   </section>
@@ -140,6 +238,28 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2>Questions we get asked a lot.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>
+              <span>{faq.question}</span>
+              <span class="icon" aria-hidden="true"></span>
+            </summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
   </section>
 
   <!-- CONTACT -->
@@ -179,4 +299,29 @@ import Layout from '../layouts/Layout.astro';
       links?.classList.remove('open');
     });
   });
+
+  // Scroll reveal: only enabled once JS confirms it can run. The opacity:0
+  // starting state in CSS is scoped under body.js-reveal, so if this script
+  // never runs (JS disabled/fails), sections stay fully visible by default.
+  if ('IntersectionObserver' in window) {
+    document.body.classList.add('js-reveal');
+
+    const revealTargets = document.querySelectorAll(
+      '.who-we-help, .what-we-do, .how-it-works, .about, .why-us, .faq, .contact'
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    revealTargets.forEach(section => observer.observe(section));
+  }
 </script>
