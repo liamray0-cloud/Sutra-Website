@@ -1,9 +1,47 @@
 ---
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Sutura Solutions — We build automations for Perth small businesses and train your team to use them. Less admin, more time on what matters.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.suturasolutions.com/#website',
+      url: 'https://www.suturasolutions.com',
+      name: 'Sutura Solutions',
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://www.suturasolutions.com/#organization',
+      name: 'Sutura Solutions',
+      url: 'https://www.suturasolutions.com',
+      email: 'info@suturasolutions.com',
+      description:
+        'Sutura Solutions builds automation systems for small businesses in Perth, Western Australia, and trains their teams to use them.',
+      areaServed: {
+        '@type': 'City',
+        name: 'Perth',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Perth',
+        addressRegion: 'WA',
+        addressCountry: 'AU',
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -11,11 +49,25 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sutura Solutions — We build automations for Perth small businesses and train your team to use them. Less admin, more time on what matters." />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sutura Solutions" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_AU" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />
