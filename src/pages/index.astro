@@ -123,6 +123,50 @@ const faqJsonLd = {
     </div>
   </section>
 
+  <!-- CALCULATOR -->
+  <section class="calculator" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">See The Cost</span>
+        <h2>What is admin time actually costing you?</h2>
+        <p>Drag the sliders to match your business. This is the number we start every proposal with.</p>
+      </div>
+      <div class="calculator-card">
+        <div class="calc-controls">
+          <div class="calc-field">
+            <label for="calcHours">
+              Hours spent on admin per week
+              <span class="calc-value" id="calcHoursValue">10</span>
+            </label>
+            <input type="range" id="calcHours" min="1" max="40" step="1" value="10" />
+          </div>
+          <div class="calc-field">
+            <label for="calcRate">
+              What's your time worth per hour?
+              <span class="calc-value" id="calcRateValue">$150</span>
+            </label>
+            <input type="range" id="calcRate" min="20" max="300" step="5" value="150" />
+          </div>
+        </div>
+        <div class="calc-results">
+          <div class="calc-result">
+            <span class="calc-result-label">Per week</span>
+            <span class="calc-result-value" id="calcWeekly">$1,500</span>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result-label">Per month</span>
+            <span class="calc-result-value" id="calcMonthly">$6,495</span>
+          </div>
+          <div class="calc-result calc-result-primary">
+            <span class="calc-result-label">Per year</span>
+            <span class="calc-result-value" id="calcYearly">$78,000</span>
+          </div>
+        </div>
+        <a href="mailto:info@suturasolutions.com" class="btn btn-primary calc-cta">Let's get that time back</a>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT WE DO -->
   <section class="what-we-do" id="what-we-do">
     <div class="container">
@@ -307,7 +351,7 @@ const faqJsonLd = {
     document.body.classList.add('js-reveal');
 
     const revealTargets = document.querySelectorAll(
-      '.who-we-help, .what-we-do, .how-it-works, .about, .why-us, .faq, .contact'
+      '.who-we-help, .calculator, .what-we-do, .how-it-works, .about, .why-us, .faq, .contact'
     );
 
     const observer = new IntersectionObserver(
@@ -324,4 +368,32 @@ const faqJsonLd = {
 
     revealTargets.forEach(section => observer.observe(section));
   }
+
+  // Admin cost calculator
+  const hoursInput = document.getElementById('calcHours');
+  const rateInput = document.getElementById('calcRate');
+  const hoursValue = document.getElementById('calcHoursValue');
+  const rateValue = document.getElementById('calcRateValue');
+  const weeklyOut = document.getElementById('calcWeekly');
+  const monthlyOut = document.getElementById('calcMonthly');
+  const yearlyOut = document.getElementById('calcYearly');
+
+  const formatMoney = (n) =>
+    '$' + Math.round(n).toLocaleString('en-AU');
+
+  function updateCalculator() {
+    const hours = Number(hoursInput.value);
+    const rate = Number(rateInput.value);
+    const weekly = hours * rate;
+
+    hoursValue.textContent = hours;
+    rateValue.textContent = formatMoney(rate);
+    weeklyOut.textContent = formatMoney(weekly);
+    monthlyOut.textContent = formatMoney(weekly * 4.33);
+    yearlyOut.textContent = formatMoney(weekly * 52);
+  }
+
+  hoursInput?.addEventListener('input', updateCalculator);
+  rateInput?.addEventListener('input', updateCalculator);
+  updateCalculator();
 </script>
