@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy — Sutura Solutions"
+  description="How Sutura Solutions collects, uses, and protects personal information, including cross-border processing through AI service providers."
+>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Sutura Solutions</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#who-we-help">Who We Help</a></li>
+        <li><a href="/#what-we-do">What We Do</a></li>
+        <li><a href="/#how-it-works">How It Works</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="mailto:info@suturasolutions.com" class="nav-cta">Get In Touch</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PRIVACY POLICY -->
+  <section class="legal" id="privacy-policy">
+    <div class="container legal-content">
+      <span class="section-label">Privacy Policy</span>
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: 15 July 2026</p>
+
+      <p>
+        Sutura Solutions ("we", "us", "our") is committed to handling personal information in
+        accordance with the Australian Privacy Principles (APPs) under the Privacy Act 1988 (Cth).
+        This policy explains what we collect, how we use it, and your rights.
+      </p>
+
+      <h2>What We Collect</h2>
+      <p>
+        We only collect personal information that's reasonably necessary for our services. This
+        typically includes:
+      </p>
+      <ul>
+        <li>Contact details you provide (name, email, phone) when booking a discovery call or getting in touch</li>
+        <li>Business information shared during discovery calls, audits, and project engagements</li>
+        <li>Operational data involved in the systems we build or connect to as part of an engagement</li>
+      </ul>
+
+      <h2>How We Use It</h2>
+      <p>
+        We use your information only for the purpose it was collected: to respond to enquiries,
+        scope and deliver engagements, and provide ongoing support. We do not sell or on-sell
+        personal information to third parties.
+      </p>
+
+      <h2>Cross-Border Disclosure &amp; AI Processing</h2>
+      <p>
+        Some of the automations and systems we build process data through AI service providers
+        based overseas (including Anthropic, OpenAI, and Google). Where this involves personal
+        information, we use enterprise-tier accounts with these providers, which carry data
+        handling terms designed to meet our obligations under APP 8. We document data flows for
+        each engagement and will discuss this with you directly before any client data is
+        processed through a third-party AI service.
+      </p>
+
+      <h2>Data Security</h2>
+      <p>
+        We take reasonable steps to protect personal information from misuse, interference, loss,
+        and unauthorised access, consistent with APP 11. Systems we build and operate run on
+        infrastructure we manage directly, so we can monitor for and respond to issues.
+      </p>
+
+      <h2>Data Breaches</h2>
+      <p>
+        In the event of a data breach likely to result in serious harm, we will notify the Office
+        of the Australian Information Commissioner (OAIC) and affected individuals in accordance
+        with the Notifiable Data Breaches (NDB) scheme.
+      </p>
+
+      <h2>Your Rights</h2>
+      <p>
+        You can ask us what personal information we hold about you, request a correction, or ask
+        us to delete it, subject to any legal obligations we have to retain it. Contact us using
+        the details below.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        For any privacy-related questions or requests, email us at
+        <a href="mailto:info@suturasolutions.com">info@suturasolutions.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Sutura Solutions</span>
+        <p>&copy; 2026 Sutura Solutions. Perth, Western Australia.</p>
+        <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</Layout>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle?.addEventListener('click', () => {
+    links?.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      links?.classList.remove('open');
+    });
+  });
+</script>
