@@ -1,4 +1,6 @@
 ---
+import { siteInfo } from '../data/site';
+
 interface Props {
   title: string;
   description?: string;
@@ -17,28 +19,28 @@ const jsonLd = {
     {
       '@type': 'WebSite',
       '@id': 'https://www.suturasolutions.com/#website',
-      url: 'https://www.suturasolutions.com',
-      name: 'Sutura Solutions',
+      url: siteInfo.url,
+      name: siteInfo.name,
       inLanguage: 'en',
+      dateModified: siteInfo.lastUpdated,
     },
     {
       '@type': 'ProfessionalService',
       '@id': 'https://www.suturasolutions.com/#organization',
-      name: 'Sutura Solutions',
-      url: 'https://www.suturasolutions.com',
-      email: 'info@suturasolutions.com',
-      logo: 'https://www.suturasolutions.com/favicon.svg',
-      description:
-        'Sutura Solutions builds automation systems for small businesses in Perth, Western Australia, and trains their teams to use them.',
+      name: siteInfo.name,
+      url: siteInfo.url,
+      email: siteInfo.email,
+      telephone: siteInfo.telephone,
+      logo: siteInfo.logo,
+      sameAs: siteInfo.sameAs,
+      description: siteInfo.description,
       areaServed: {
         '@type': 'City',
-        name: 'Perth',
+        name: siteInfo.areaServed,
       },
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Perth',
-        addressRegion: 'WA',
-        addressCountry: 'AU',
+        ...siteInfo.address,
       },
     },
   ],

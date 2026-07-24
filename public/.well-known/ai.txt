@@ -1,0 +1,11 @@
+# AI usage policy — Sutura Solutions
+# https://www.suturasolutions.com
+
+Contact: info@suturasolutions.com
+Permitted-Use: training, search-indexing, citation, summarization
+Attribution: required
+
+Summary: https://www.suturasolutions.com/ai/summary.json
+FAQ: https://www.suturasolutions.com/ai/faq.json
+Services: https://www.suturasolutions.com/ai/service.json
+LLMs: https://www.suturasolutions.com/llms.txt

@@ -13,6 +13,17 @@ Sutura Solutions is a Perth-based automation consultancy. We find where a busine
 
 Small and medium businesses in Perth, Western Australia, typically 5–50 employees, including tradies and service businesses.
 
+## About
+
+- [About Sutura Solutions](https://www.suturasolutions.com/about): Why we started, how we work, and who we're for.
+
+## Machine-readable resources
+
+- [Site summary](https://www.suturasolutions.com/ai/summary.json)
+- [FAQ](https://www.suturasolutions.com/ai/faq.json)
+- [Services](https://www.suturasolutions.com/ai/service.json)
+
 ## Contact
 
 - Email: info@suturasolutions.com
+- Phone: +61 478 913 350

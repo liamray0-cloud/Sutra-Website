@@ -1,33 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const faqs = [
-  {
-    question: 'How much does this cost?',
-    answer:
-      "It depends on the scope, so we don't publish a flat rate card. After a discovery call, we put together a written proposal — the exact scope, timeline, and cost — before anything is built. No fees and no surprises until you decide to go ahead.",
-  },
-  {
-    question: 'How long does a project take?',
-    answer:
-      "It depends on complexity, but every project starts with a defined scope of work before any building begins — no open-ended timelines. Simple, single-workflow automations take far less time than multi-system builds; we'll give you a realistic timeline as part of the scoping process, not a guess.",
-  },
-  {
-    question: 'Do I need to be technical to work with you?',
-    answer:
-      "No. Training your team is part of every engagement, not an optional extra — we explain things in plain English and make sure your people are comfortable running what we build before we call it done.",
-  },
-  {
-    question: 'What happens if something breaks?',
-    answer:
-      "Every implementation includes a post-launch support window, and automations run on our own infrastructure so we can monitor and fix issues directly rather than relying on you to notice something's gone wrong.",
-  },
-  {
-    question: 'Where are you based?',
-    answer:
-      'Perth, Western Australia. We work with local small and medium businesses — typically 5 to 50 people — and we can meet on-site.',
-  },
-];
+import { faqs } from '../data/site';
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -67,7 +40,7 @@ const faqJsonLd = {
         <li><a href="#who-we-help">Who We Help</a></li>
         <li><a href="#what-we-do">What We Do</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="/about">About</a></li>
         <li><a href="mailto:info@suturasolutions.com" class="nav-cta">Get In Touch</a></li>
       </ul>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
@@ -270,6 +243,7 @@ const faqJsonLd = {
         <p>
           We're a Perth-based team building practical automation for local businesses, not enterprise software dressed up for small teams. Every system we build runs on our own infrastructure and comes with training, because a tool nobody knows how to use isn't a solution — it's just another piece of software gathering dust.
         </p>
+        <p><a href="/about" class="about-more-link">Learn more about us →</a></p>
       </div>
     </div>
   </section>

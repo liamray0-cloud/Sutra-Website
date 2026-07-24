@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About — Sutura Solutions"
+  description="Sutura Solutions is a Perth-based automation consultancy building practical systems for small businesses, and training their teams to run them."
+>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" viewBox="0 0 340 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sutura Solutions">
+          <path d="M32,12 L52,32 L32,52 L12,32 Z" fill="none" stroke="#c1502e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6"/>
+          <circle cx="32" cy="12" r="6" fill="#2b2420"/>
+          <circle cx="52" cy="32" r="6" fill="#2b2420"/>
+          <circle cx="32" cy="52" r="6" fill="#2b2420"/>
+          <circle cx="12" cy="32" r="6" fill="#2b2420"/>
+          <circle cx="32" cy="12" r="2.2" fill="#faf6f0"/>
+          <circle cx="52" cy="32" r="2.2" fill="#faf6f0"/>
+          <circle cx="32" cy="52" r="2.2" fill="#faf6f0"/>
+          <circle cx="12" cy="32" r="2.2" fill="#faf6f0"/>
+          <text x="76" y="30" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" fill="#2b2420">Sutura</text>
+          <text x="76" y="50" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-size="15" fill="#5b5147" letter-spacing="1.5">SOLUTIONS</text>
+        </svg>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#who-we-help">Who We Help</a></li>
+        <li><a href="/#what-we-do">What We Do</a></li>
+        <li><a href="/#how-it-works">How It Works</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="mailto:info@suturasolutions.com" class="nav-cta">Get In Touch</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ABOUT -->
+  <section class="about about-page-intro" id="about-page">
+    <div class="container about-content">
+      <span class="section-label">About</span>
+      <h1>Why we started this.</h1>
+      <p>
+        We started Sutura Solutions because we kept watching good businesses get buried under admin they didn't have time for — quotes written at night, leads answered days too late, invoices chasing themselves.
+      </p>
+      <p>
+        We're a Perth-based team building practical automation for local businesses, not enterprise software dressed up for small teams. Every system we build runs on our own infrastructure and comes with training, because a tool nobody knows how to use isn't a solution — it's just another piece of software gathering dust.
+      </p>
+
+      <h2>Who we're for</h2>
+      <p>
+        We work with tradies, service businesses, and growing companies — typically 5 to 50 people — that know there's a better way to run things, they just haven't had the time to figure it out. If quoting happens at 9pm, leads sit for days before anyone replies, or invoices go out weeks late because nobody's chasing them, that's the gap we build systems to close.
+      </p>
+
+      <h2>How we work</h2>
+      <p>
+        <strong>Local to Perth.</strong> We're based here. We can sit in your office, meet on-site, and understand how business actually runs in WA — not from a desk interstate.
+      </p>
+      <p>
+        <strong>We stick around.</strong> We don't build something and disappear. We set it up, train your team, and make sure it's running properly before we step back — plus a defined support window after launch, not a disappearing act.
+      </p>
+      <p>
+        <strong>Sized for you.</strong> Everything we do is built for businesses with 5–50 people. No enterprise nonsense, no six-month projects — practical systems that fit how you actually work.
+      </p>
+
+      <h2>Get in touch</h2>
+      <p>
+        Book a 20-minute discovery call and we'll have a straight conversation about what's eating up your time and whether we can help. Email us at <a href="mailto:info@suturasolutions.com">info@suturasolutions.com</a> or call <a href="tel:+61478913350">0478 913 350</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Sutura Solutions</span>
+        <p>&copy; 2026 Sutura Solutions. Perth, Western Australia.</p>
+        <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</Layout>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle?.addEventListener('click', () => {
+    links?.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      links?.classList.remove('open');
+    });
+  });
+</script>

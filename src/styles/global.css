@@ -520,6 +520,20 @@ section {
   margin-bottom: 0;
 }
 
+.about-more-link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.about-more-link:hover {
+  color: var(--accent-dark);
+}
+
+/* --- ABOUT PAGE (standalone) --- */
+.about-page-intro {
+  padding-top: 9rem;
+}
+
 /* --- WHY US --- */
 .why-us {
   background: var(--surface);
