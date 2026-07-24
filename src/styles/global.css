@@ -88,6 +88,13 @@ img {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--ink);
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-mark {
+  height: 34px;
+  width: auto;
 }
 
 .nav-links {
