@@ -22,6 +22,7 @@ Small and medium businesses in Perth, Western Australia, typically 5–50 employ
 - [Site summary](https://www.suturasolutions.com/ai/summary.json)
 - [FAQ](https://www.suturasolutions.com/ai/faq.json)
 - [Services](https://www.suturasolutions.com/ai/service.json)
+- [Sitemap](https://www.suturasolutions.com/sitemap.xml)
 
 ## Contact
 

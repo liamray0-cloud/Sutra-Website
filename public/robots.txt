@@ -27,3 +27,5 @@ Allow: /
 
 User-agent: CCBot
 Allow: /
+
+Sitemap: https://www.suturasolutions.com/sitemap.xml
